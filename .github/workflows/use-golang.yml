@@ -7,6 +7,7 @@ jobs:
   call-linter:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Call Go Linter
         uses: ./.github/workflows/golang.yml
         with:
