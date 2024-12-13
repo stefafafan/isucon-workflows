@@ -19,6 +19,8 @@ jobs:
       with:
         go-version: stable
 
+    - run: cd ./webapp/golang && go mod tidy
+
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v6
       with:
