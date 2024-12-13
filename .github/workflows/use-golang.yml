@@ -16,4 +16,4 @@ jobs:
     uses: ./.github/workflows/golang.yml
     with:
       working-directory: './webapp/golang'
-      golangci-config: './webapp/golang/.golangci.yml'
+      golangci-config: '.golangci.yml'
