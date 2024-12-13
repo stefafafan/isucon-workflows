@@ -10,7 +10,7 @@ ISUCON向けに導入できる GitHub Reusable Workflows をまとめたリポ�
 以下のようなWorkflowを設定すると内部で golangci-lint を用いてリンターを走らせることができます。
 
 ```yaml
-name: Go Linter Caller
+name: Go Lint
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  call-linter:
+  lint:
     uses: stefafafan/isucon-workflows/.github/workflows/golang.yml@v1
     with:
       working-directory: './webapp/go'
