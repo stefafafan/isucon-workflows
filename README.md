@@ -54,7 +54,7 @@ on:
 
 jobs:
   check:
-    uses: ./.github/workflows/node.yml
+    uses: stefafafan/isucon-workflows/.github/workflows/node.yml@v1
     with:
       working-directory: './webapp/node'
 ```
