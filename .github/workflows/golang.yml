@@ -5,14 +5,19 @@ on:
     inputs:
       working-directory:
         type: string
-        description: 'The working directory to run the linter'
+        description: 'webapp/go までのパス'
         required: true
         default: './webapp/go'
       golangci-config:
         type: string
-        description: 'The path to the golangci-lint configuration file'
+        description: 'working-directory からみての .golangci.yml のパス'
         required: false
         default: ''
+      only-new-issues:
+        type: boolean
+        description: '新しいissueのみ報告するか否か'
+        required: false
+        default: true
 
 permissions:
   contents: read
@@ -36,6 +41,6 @@ jobs:
       uses: golangci/golangci-lint-action@v6
       with:
         version: latest
-        only-new-issues: true
+        only-new-issues: ${{ inputs.only-new-issues }}
         working-directory: ${{ inputs.working-directory }}
-        args: --timeout=10m --config=${{ inputs.golangci-config }}
+        args: --config=${{ inputs.golangci-config }}
