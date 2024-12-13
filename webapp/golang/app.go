@@ -150,10 +150,7 @@ func getSessionUser(r *http.Request) User {
 
 	u := User{}
 
-	err := db.Get(&u, "SELECT * FROM `users` WHERE `id` = ?", uid)
-	if err != nil {
-		return User{}
-	}
+	err = db.Get(&u, "SELECT * FROM `users` WHERE `id` = ?", uid)
 
 	return u
 }
