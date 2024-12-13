@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Call Go Linter
-        uses: ./.github/workflows/golang.yml
+        uses: ./.github/workflows/golang.yml@8f421f81b0b8373f4f421b7fe7a964e45fc28c44
         with:
           working-directory: './webapp/golang'
           golangci-config: './.golangci.yml'
