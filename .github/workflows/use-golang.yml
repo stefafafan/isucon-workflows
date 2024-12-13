@@ -1,0 +1,14 @@
+name: Go Linter Caller
+
+on:
+  push:
+
+jobs:
+  call-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Go Linter
+        uses: ./.github/workflows/golang.yml
+        with:
+          working-directory: './webapp/golang'
+          golangci-config: './.golangci.yml'
