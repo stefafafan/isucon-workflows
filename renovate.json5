@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:best-practices"],
+	"extends": ["config:best-practices", "schedule:earlyMondays"],
 	"enabledManagers": ["github-actions"],
 	"packageRules": [
 		{
@@ -17,6 +17,5 @@
 			"labels": ["major-update"]
 		}
 	],
-	"schedule": ["every week"],
-	"timezone": "UTC"
+	"automergeSchedule": ["* * * * 1-5"]
 }
