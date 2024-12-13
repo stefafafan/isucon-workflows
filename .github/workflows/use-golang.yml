@@ -1,7 +1,11 @@
 name: Go Linter Caller
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   push:
+    branches:
+      - main
 
 permissions:
   contents: read
