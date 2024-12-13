@@ -17,10 +17,6 @@ const upload = multer({});
 const POSTS_PER_PAGE = 20;
 const UPLOAD_LIMIT = 10 * 1024 * 1024 // 10mb
 
-function if() {
-  return 0;
-}
-
 const db = mysql.createPool({
   host: process.env.ISUCONP_DB_HOST || 'localhost',
   port: process.env.ISUCONP_DB_PORT || 3306,
