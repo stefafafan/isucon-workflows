@@ -1,7 +1,13 @@
 name: Go Lint
 
 on:
-  push:
+  workflow_call:
+    inputs:
+      working-directory:
+        type: string
+        description: 'The working directory to run the linter'
+        required: true
+        default: './webapp/golang'
 
 permissions:
   contents: read
@@ -17,14 +23,14 @@ jobs:
     - uses: actions/setup-go@v5
       with:
         go-version: stable
-        cache-dependency-path: ./webapp/golang/go.sum
+        cache-dependency-path: ${{ inputs.working-directory }}/go.sum
 
-    - run: cd ./webapp/golang && go mod tidy
+    - run: cd ${{ inputs.working-directory }} && go mod tidy
 
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v6
       with:
         version: latest
         only-new-issues: true
-        working-directory: ./webapp/golang
+        working-directory: ${{ inputs.working-directory }}
         args: --timeout=10m
