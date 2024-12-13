@@ -1,0 +1,46 @@
+name: Go Linter
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        type: string
+        description: 'webapp/go までのパス'
+        required: false
+        default: './webapp/go'
+      golangci-config:
+        type: string
+        description: 'working-directory からみての .golangci.yml のパス'
+        required: false
+        default: ''
+      only-new-issues:
+        type: boolean
+        description: '新しいissueのみ報告するか否か'
+        required: false
+        default: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-go@v5
+      with:
+        go-version-file: ${{ inputs.working-directory }}/go.mod
+        cache-dependency-path: ${{ inputs.working-directory }}/go.sum
+
+    - run: cd ${{ inputs.working-directory }} && go mod tidy
+
+    - name: Run golangci-lint
+      uses: golangci/golangci-lint-action@v6
+      with:
+        version: latest
+        only-new-issues: ${{ inputs.only-new-issues }}
+        working-directory: ${{ inputs.working-directory }}
+        args: --config=${{ inputs.golangci-config }}
