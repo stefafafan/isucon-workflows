@@ -12,7 +12,7 @@ on:
         type: string
         description: 'The path to the golangci-lint configuration file'
         required: false
-        default: './.golangci.yml'
+        default: ''
 
 permissions:
   contents: read
