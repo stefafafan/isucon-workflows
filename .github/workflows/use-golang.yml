@@ -2,8 +2,6 @@ name: Go Linter Caller
 
 on:
   push:
-    paths:
-      - '**/*.go'
 
 permissions:
   contents: read
