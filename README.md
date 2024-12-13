@@ -1,6 +1,9 @@
 # isucon-workflows
 ISUCON向けに導入できる GitHub Reusable Workflows をまとめたリポジトリです。
 
+> [!NOTE]
+> 「[ISUCON](https://isucon.net/)」は、LINEヤフー株式会社の商標または登録商標です。
+
 ## 設定例
 
 言語ごとに簡単に導入できるサンプルを提示します。
