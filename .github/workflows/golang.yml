@@ -7,7 +7,7 @@ on:
         type: string
         description: 'The working directory to run the linter'
         required: true
-        default: './webapp/golang'
+        default: './webapp/go'
       golangci-config:
         type: string
         description: 'The path to the golangci-lint configuration file'
