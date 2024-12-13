@@ -6,7 +6,7 @@ on:
       working-directory:
         type: string
         description: 'webapp/go までのパス'
-        required: true
+        required: false
         default: './webapp/go'
       golangci-config:
         type: string
