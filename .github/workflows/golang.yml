@@ -17,6 +17,7 @@ jobs:
     - uses: actions/setup-go@v5
       with:
         go-version: stable
+        cache-dependency-path: ./webapp/golang/go.sum
 
     - run: cd ./webapp/golang && go mod tidy
 
