@@ -24,3 +24,4 @@ jobs:
     - run: |
         set -e
         find ${{ inputs.working-directory }} -name "*.js" -exec node --check {} \;
+      shell: bash
