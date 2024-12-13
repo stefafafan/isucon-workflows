@@ -27,7 +27,7 @@ jobs:
 
     - uses: actions/setup-go@v5
       with:
-        go-version: stable
+        go-version-file: ${{ inputs.working-directory }}/go.mod
         cache-dependency-path: ${{ inputs.working-directory }}/go.sum
 
     - run: cd ${{ inputs.working-directory }} && go mod tidy
