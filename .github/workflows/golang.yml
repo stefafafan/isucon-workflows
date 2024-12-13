@@ -8,6 +8,11 @@ on:
         description: 'The working directory to run the linter'
         required: true
         default: './webapp/golang'
+      golangci-config:
+        type: string
+        description: 'The path to the golangci-lint configuration file'
+        required: false
+        default: './.golangci.yml'
 
 permissions:
   contents: read
@@ -33,4 +38,4 @@ jobs:
         version: latest
         only-new-issues: true
         working-directory: ${{ inputs.working-directory }}
-        args: --timeout=10m
+        args: --timeout=10m --config=${{ inputs.golangci-config }}
