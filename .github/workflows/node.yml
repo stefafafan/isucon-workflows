@@ -1,0 +1,31 @@
+name: Node.js Syntax Checker
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        type: string
+        description: 'webapp/node までのパス'
+        required: false
+        default: './webapp/node'
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: latest
+
+    # node --check で構文チェックのみ行う
+    - run: |
+        find ${{ inputs.working-directory }} -name "*.js" | while read -r file; do
+          echo "Checking $file"
+          if ! node --check "$file"; then
+            echo "Syntax error in $file"
+            exit 1
+          fi
+        done
