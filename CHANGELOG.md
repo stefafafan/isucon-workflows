@@ -1,5 +1,8 @@
 # Changelog
 
+## [v1.0.2](https://github.com/stefafafan/isucon-workflows/compare/v1.0.1...v1.0.2) - 2025-04-07
+- Pin dependencies by @renovate in https://github.com/stefafafan/isucon-workflows/pull/14
+
 ## [v1.0.1](https://github.com/stefafafan/isucon-workflows/compare/v1...v1.0.1) - 2024-12-13
 - node --checkをするだけのWorkflowを追加 by @stefafafan in https://github.com/stefafafan/isucon-workflows/pull/11
 - readme の例を修正 by @stefafafan in https://github.com/stefafafan/isucon-workflows/pull/13
