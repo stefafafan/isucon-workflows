@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-    - uses: actions/setup-go@v5
+    - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5
       with:
         go-version-file: ${{ inputs.working-directory }}/go.mod
         cache-dependency-path: ${{ inputs.working-directory }}/go.sum
@@ -38,7 +38,7 @@ jobs:
     - run: cd ${{ inputs.working-directory }} && go mod tidy
 
     - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v6
+      uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84 # v6
       with:
         version: latest
         only-new-issues: ${{ inputs.only-new-issues }}
